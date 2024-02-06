@@ -29,9 +29,9 @@ func solveEquation(x float64) (float64, float64) {
 }
 
 func main() {
-	// Example usage:
-	x := 15.0
-	root1, root2 := solveEquation(x)
-
-	fmt.Printf("For x = %.2f, the possible values for n are: %.2f and %.2f\n", x, root1, root2)
+	// Iterate over x values from 3 to 30
+	  for x := 3.0; x <= 30.0; x++ {
+		  root1, root2 := solveEquation(x)
+		  fmt.Printf("For x = %.2f, the possible values for n are: %.2f and %.2f\n", x, root1, root2)
+	  }
 }
