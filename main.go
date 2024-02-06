@@ -27,11 +27,21 @@ func solveEquation(x float64) (float64, float64) {
 
 	return root1, root2
 }
-
 func main() {
 	// Iterate over x values from 3 to 30
-	  for x := 3.0; x <= 30.0; x++ {
-		  root1, root2 := solveEquation(x)
-		  fmt.Printf("For x = %.2f, the possible values for n are: %.2f and %.2f\n", x, root1, root2)
-	  }
+	for x := 3.0; x <= 30.0; x++ {
+		root1, root2 := solveEquation(x)
+
+		// Filter out non-whole number results
+		if isWholeNumber(root1) {
+			fmt.Printf("For x = %.2f, n = %.2f\n", x, root1)
+		}
+		if isWholeNumber(root2) && root1 != root2 {
+			fmt.Printf("For x = %.2f, n = %.2f\n", x, root2)
+		}
+	}
+}
+
+func isWholeNumber(value float64) bool {
+	return value == math.Floor(value) && !math.IsInf(value, 0)
 }
